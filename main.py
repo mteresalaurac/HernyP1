@@ -5,13 +5,13 @@ app = FastAPI()
 
 import pandas as pd
 
-items['item_id'] = items['item_id'].astype(float) #Necesito igualar el tipo de dato para poder joinear las tablas 
-df= pd.merge(items, games, on='item_id', how='inner')
-
 #Importo los archivos
 games=pd.read_csv("Archivos_MVP/games_mvp.csv",encoding="latin-1")
 reviews= pd.read_parquet("Archivos_MVP/reviews_mvp.parquet")
 items=pd.read_parquet("Archivos_MVP/item_mvp.parquet")
+
+items['item_id'] = items['item_id'].astype(float) #Necesito igualar el tipo de dato para poder joinear las tablas 
+df= pd.merge(items, games, on='item_id', how='inner')
 
 @app.get("/")
 async def ruta_prueba():
