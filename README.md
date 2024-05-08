@@ -4,7 +4,7 @@ Trabajo realizado como "Proyecto Individual 1" para Bootcamp Henry - Data PT 08 
 
 
 Se realizó un proyecto que consiste en realizar un MVP sobre una base de datos correspondiente a juegos: Steam Games.
-Los datos son recibidos en formato zip. 
+Los datos son recibidos en formato zip. Se realizó una limpieza que permitió comenzar a utilizarlos y luego se realizaron funciones que, mediante una API se conectan a un servidor, logrando correr a traves de Render.
 
 ETL:
 Para poder trabajar con los datos se realizó un ETL, realizando todas las transformaciones posibles, para lograr trabajar con datos limpios y legibles.
@@ -20,5 +20,7 @@ Los mismos tienen el nombre de "games", "items" y "reviews",
 FEATURE ENGINEERING:
 Se realizó un análisis de sentimientos con NLP, mediante una librería que se llama nltk.
 Se realizó la clasificación utilizando el objeto de SentimentIntensityAnalyzer().
-En los resultados obtenidos a partir de las palabras analizadas, se toma la columna de compound  que va a asignar un resumen general de la puntuación
+En los resultados obtenidos a partir de las palabras analizadas, se toma la columna de compound  que va a asignar un resumen general de la puntuación. 
+
+
 
