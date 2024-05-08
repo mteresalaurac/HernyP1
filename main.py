@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI
 app = FastAPI()
 
@@ -36,8 +37,6 @@ async def PlayTimeGenre( genero : str ):
     df_ordenado.reset_index(inplace=True) #Agrego el indice para ver las posiciones
     
     #5) Imprimo resultado de funcion
-    print(f"Cantidad de horas jugadas en dicho año: {int(df_ordenado.horas.iloc[0])}")
-    return 
-
+    return print(f"Cantidad de horas jugadas en dicho año: {int(df_ordenado.horas.iloc[0])}")
 
 PlayTimeGenre("strategy")
