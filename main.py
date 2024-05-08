@@ -20,7 +20,7 @@ async def ruta_prueba():
 
 #Primera Funcion
 
-@app.get("PlayTimeGenre")
+@app.get("/PlayTimeGenre")
 async def PlayTimeGenre( genero : str ):
     genero=genero.lower() #lo paso a minusculas por si esta escrito con mayusculas
     # 1) Paso toda al columna de generos a minuscula
@@ -37,6 +37,6 @@ async def PlayTimeGenre( genero : str ):
     df_ordenado.reset_index(inplace=True) #Agrego el indice para ver las posiciones
     
     #5) Imprimo resultado de funcion
-    return print(f"Cantidad de horas jugadas en dicho año: {int(df_ordenado.horas.iloc[0])}")
+    return {f"Cantidad de horas jugadas en dicho año: {int(df_ordenado.horas.iloc[0])}"}
 
-PlayTimeGenre("strategy")
+#PlayTimeGenre("strategy")
