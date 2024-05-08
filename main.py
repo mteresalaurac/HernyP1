@@ -18,6 +18,8 @@ import pandas as pd
 games=pd.read_csv("Archivos_MVP/games_mvp.csv",encoding="latin-1")
 reviews= pd.read_parquet("Archivos_MVP/reviews_mvp.parquet")
 items=pd.read_parquet("Archivos_MVP/item_mvp.parquet")
+sentimientos=pd.read_parquet("Archivos_MVP/sentimientos_mvp.parquet")
+
 
 items['item_id'] = items['item_id'].astype(float) #Necesito igualar el tipo de dato para poder joinear las tablas 
 df= pd.merge(items, games, on='item_id', how='inner')
@@ -80,12 +82,12 @@ async def UserForGenre( genero : str ):
     #6) Creo un dataframe con los valores de la serie que cree
     df_horas_por_anio = pd.DataFrame({'Año': horas_por_anio.index, 'Horas': horas_por_anio.values})
     
-    #7) Recorro el diccionario para 
+    #7) Recorro el diccionario para imprimir
     for indice, fila in df_horas_por_anio.iterrows():
         año = int(fila['Año'])
         horas_jugadas = int(fila['Horas'])
         print(f"Año: {año} -->  {horas_jugadas} horas ")
         
-    return {f"Usuario con mas horas jugadas para género {genero.upper()}: {userid_maxhoras}\nHoras jugadas:"}
+    return {f"Usuario con mas horas jugadas para género {genero.upper()}: {userid_maxhoras}<br>Horas jugadas:"}
 
 #UserForGenre("Action")
