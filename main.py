@@ -1,8 +1,17 @@
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
-
+# Este middleware permite solicitudes CORS desde cualquier origen
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
 import pandas as pd
 
 #Importo los archivos
@@ -37,6 +46,7 @@ async def PlayTimeGenre( genero : str ):
     df_ordenado.reset_index(inplace=True) #Agrego el indice para ver las posiciones
     
     #5) Imprimo resultado de funcion
-    return {f"Cantidad de horas jugadas en dicho año: {int(df_ordenado.horas.iloc[0])}"}
+    return {f"Año con más horas jugadas para dicho género {genero.upper()}: {df_ordenado.date.iloc[0]}"}
+
 
 #PlayTimeGenre("strategy")
